@@ -1,4 +1,4 @@
 <?php
- $connection = mysqli_connect("localhost","root","","grab_technician");
+ $connection = mysqli_connect("mysql","root","tiger","grab_technician");
  mysqli_set_charset($connection,"utf8");
 ?>
