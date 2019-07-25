@@ -1,7 +1,7 @@
 <?php
 include '../config/connect_DB.php';
 
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 $input_data = file_get_contents("php://input");
 $return = array();
 $return['data_user'] = array();

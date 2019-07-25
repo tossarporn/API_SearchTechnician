@@ -1,5 +1,5 @@
 <?php
-    header("Access-Control-Allow-Origin: *");
+    //header("Access-Control-Allow-Origin: *");
     $data = file_get_contents("php://input");
     $array_input = json_decode($data,true);
     

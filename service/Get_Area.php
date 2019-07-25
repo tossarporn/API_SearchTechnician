@@ -1,6 +1,6 @@
 <?php
 include"../config/connect_DB.php";
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 $select = "SELECT `id`,`area_name` FROM `area_bangkok` WHERE 1";
 $area = [];
 	if ($res = mysqli_query($connection,$select)) {

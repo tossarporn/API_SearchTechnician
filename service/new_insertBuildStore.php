@@ -1,6 +1,6 @@
 <?php
 include '../config/connect_DB.php';
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 $post_data = file_get_contents("php://input");
     if(isset($post_data)){
         $request = json_decode($post_data,true);
