@@ -27,20 +27,17 @@ if($res = mysqli_query($connection,$select)){
     }
     else{
 
-        $insert_guest_details = "INSERT INTO 
-         `guest_register` (`id`, `username`, `password`, `status`, `guest_name`, `guest_lastname`, `guest_tel`, `guest_num_house`, `guest_street`, `guest_distric`, `guest_area`)  
+        $insert_guest_details = "INSERT INTO `guest_register` (`id`, `username`, `password`, `status`, `guest_name`, `guest_lastname`, `guest_tel`, `guest_num_house`, `guest_street`, `guest_distric`, `guest_area`)  
         VALUES (NULL,'{$user}','{$password}','{$status}','{$guest_name}','{$guest_lastname}','{$guest_tel}','{$guest_num_house}','{$guest_street}','{$guest_distric}','{$guest_area}')";
+                mysqli_query($connection,$insert_guest_details);
                 $detail['message'] = "สมัคสมาชิกสำเร็จ";
                 $detail['status'] = true;   
-        $query = mysqli_query($connection,$insert_guest_details);
+        
     }
-
+    echo  $insert_guest_details;
 }
 else{
             $detail['message'] = "ไม่สามารถติดต่อข้อมูลได้";
 }       
-
 echo json_encode($detail);
-
-
 ?>
