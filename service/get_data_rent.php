@@ -60,8 +60,8 @@ $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id'
     }
 echo json_encode($detail);
     function status_rent ($ref_id_guest,$connection){
-        $select = "SELECT `check_tus` FROM `guest_register` WHERE `id`='{$ref_id_guest}'";
-        if($res = mysqli_query($connection,$select)){
+        $select_ref = "SELECT `check_tus` FROM `guest_register` WHERE `id`='{$ref_id_guest}'";
+        if($res = mysqli_query($connection,$select_ref)){
             while($row = mysqli_fetch_assoc($res)){         
                  $row_s[] = $row;
             }
