@@ -43,7 +43,8 @@ $detail = [];
     if(isset($_POST['tec_id'])){
          $tec_id = $_POST['tec_id'];
 $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id']."' ORDER BY `date_service` DESC";
-        if($res = mysqli_query($connection,$select)){
+echo $select; 
+if($res = mysqli_query($connection,$select)){
                 // $row = mysqli_fetch_assoc($res);
                 // $detail[] = $row;
             while($row = mysqli_fetch_assoc($res)){
@@ -61,7 +62,7 @@ $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id'
 echo json_encode($detail);
     function status_rent ($ref_id_guest,$connection){
         $select_ref = "SELECT `check_tus` FROM `guest_register` WHERE `id`='{$ref_id_guest}'";
-       echo $ref_id_guest;
+       
         if($res = mysqli_query($connection,$select_ref)){
             while($row = mysqli_fetch_assoc($res)){         
                  $row_s[] = $row;
