@@ -47,7 +47,7 @@ $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id'
                 // $row = mysqli_fetch_assoc($res);
                 // $detail[] = $row;
             while($row = mysqli_fetch_assoc($res)){
-                $row['ref_regis'] = status_rent($row[''],$connection);
+                $row['ref_regis'] = status_rent($row['ref_regis'],$connection);
                 $detail[] = $row;
             }
         }
