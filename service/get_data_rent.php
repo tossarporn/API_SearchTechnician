@@ -40,34 +40,34 @@ $detail = [];
 //     }
 // }
 
-    if(isset($_POST['tec_id'])){
-         $tec_id = $_POST['tec_id'];
-$select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id']."' ORDER BY `date_service` DESC";
-        if($res = mysqli_query($connection,$select)){
-                // $row = mysqli_fetch_assoc($res);
-                // $detail[] = $row;
-            while($row = mysqli_fetch_assoc($res)){
-                $row['status_guset'] = status_rent($row['ref_regis'],$connection);
-                $detail[] = $row;
-            }
-        }
-        else{
-          $detail['message']  = "ไม่สามารถติดต่อข้อมูลได้";
-        }
-    }
-    else {
-        $detail['message']  = "ไม่สามารถติดต่อข้อมูลได้";
-    }
-echo json_encode($detail);
-    function status_rent ($ref_regis,$connection){
-        $select_ref = "SELECT guest_register.check_tus as status_guset FROM `guest_register`INNER JOIN customerforrent ON guest_register.id = customerforrent.ref_regis WHERE guest_register.id='{$ref_regis}'";
+//     if(isset($_POST['tec_id'])){
+//          $tec_id = $_POST['tec_id'];
+// $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id']."' ORDER BY `date_service` DESC";
+//         if($res = mysqli_query($connection,$select)){
+//                 // $row = mysqli_fetch_assoc($res);
+//                 // $detail[] = $row;
+//             while($row = mysqli_fetch_assoc($res)){
+//                 $row['status_guset'] = status_rent($row['ref_regis'],$connection);
+//                 $detail[] = $row;
+//             }
+//         }
+//         else{
+//           $detail['message']  = "ไม่สามารถติดต่อข้อมูลได้";
+//         }
+//     }
+//     else {
+//         $detail['message']  = "ไม่สามารถติดต่อข้อมูลได้";
+//     }
+// echo json_encode($detail);
+    // function status_rent ($ref_regis,$connection){
+    //     $select_ref = "SELECT guest_register.check_tus as status_guset FROM `guest_register`INNER JOIN customerforrent ON guest_register.id = customerforrent.ref_regis WHERE guest_register.id='{$ref_regis}'";
        
-        if($res = mysqli_query($connection,$select_ref)){
-            while($row = mysqli_fetch_assoc($res)){         
-                 $row_s[] = $row;
-            }
+    //     if($res = mysqli_query($connection,$select_ref)){
+    //         while($row = mysqli_fetch_assoc($res)){         
+    //              $row_s[] = $row;
+    //         }
     
-        }
-        return $row_s;
-    }
+    //     }
+    //     return $row_s;
+    // }
 ?>
