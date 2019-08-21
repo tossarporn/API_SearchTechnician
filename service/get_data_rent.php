@@ -47,7 +47,7 @@ $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id'
                 // $row = mysqli_fetch_assoc($res);
                 // $detail[] = $row;
             while($row = mysqli_fetch_assoc($res)){
-                // $row['status_guest'] = status_rent($row['ref_regis'],$connection);
+                $row['status_guest'] = status_rent($row['ref_regis'],$connection);
                 $detail[] = $row;
             }
         }
@@ -59,15 +59,15 @@ $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id'
         $detail['message']  = "ไม่สามารถติดต่อข้อมูลได้";
     }
 echo json_encode($detail);
-    // function status_rent ($ref_id_guest,$connection){
-    //     $select_ref = "SELECT `check_tus` FROM `guest_register` WHERE `id`='{$ref_id_guest}'";
+    function status_rent ($ref_id_guest,$connection){
+        $select_ref = "SELECT `check_tus` FROM `guest_register` WHERE `id`='{$ref_id_guest}'";
        
-    //     if($res = mysqli_query($connection,$select_ref)){
-    //         while($row = mysqli_fetch_assoc($res)){         
-    //              $row_s[] = $row;
-    //         }
+        if($res = mysqli_query($connection,$select_ref)){
+            while($row = mysqli_fetch_assoc($res)){         
+                 $row_s[] = $row;
+            }
     
-    //     }
-    //     return $row_s;
-    // }
+        }
+        return $row_s;
+    }
 ?>
