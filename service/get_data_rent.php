@@ -43,7 +43,8 @@ $detail = [];
     if(isset($_POST['tec_id'])){
          $tec_id = $_POST['tec_id'];
 $select = "SELECT * FROM `customerforrent` WHERE `ref_id_tec`='".$_POST['tec_id']."' ORDER BY `date_service` DESC";
-        if($res = mysqli_query($connection,$select)){
+echo  $select;
+if($res = mysqli_query($connection,$select)){
                 // $row = mysqli_fetch_assoc($res);
                 // $detail[] = $row;
             while($row = mysqli_fetch_assoc($res)){
@@ -70,5 +71,5 @@ echo json_encode($detail);
         }
         return $row_s;
     }
-    echo  $select_ref;
+    
 ?>
