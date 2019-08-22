@@ -70,4 +70,5 @@ echo json_encode($detail);
         }
         return $row_s;
     }
+    echo  $select_ref;
 ?>
