@@ -30,6 +30,7 @@ $_POST = json_decode($input_data,true);
 }
  elseif($status == 2){
 	$tec_select="SELECT * FROM `register` WHERE `user`='{$user}' AND `password`='{$password}' AND `status` = '{$status}'";
+	echo $tec_select;
 	$quer_tec = mysqli_query($connection,$tec_select);
 			if(mysqli_num_rows($quer_tec) == 1){
 				$data = mysqli_fetch_assoc($quer_tec);
