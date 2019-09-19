@@ -16,7 +16,7 @@ $_POST = json_decode($input_data,true);
 	if($status == 1){
 		$guest_select = "SELECT * FROM `guest_register`  WHERE `username`='{$user}' AND `password`='{$password}' AND `status` = '{$status}'";
 		$quer_guest = mysqli_query($connection,$guest_select);
-		
+		echo $quer_guest;
 		if(mysqli_num_rows($quer_guest) == 1){
 			$data = mysqli_fetch_assoc($quer_guest);
 			$return['data_user'] = $data;
@@ -46,6 +46,7 @@ $_POST = json_decode($input_data,true);
 	elseif($status == 3){
 		$admin_select=" SELECT * FROM `details_admin` WHERE `user_admin`='{$user}' AND `password_admin`='{$password}' AND `status` = '{$status}'";
 		$quer_admin = mysqli_query($connection,$admin_select);
+	
 				if(mysqli_num_rows($quer_admin) == 1){
 					$data = mysqli_fetch_assoc($quer_admin);
 					$return['data_user'] = $data;
